@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Moss.Sdk</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>MOSS Computing</Authors>
+    <Company>IAMPASS Inc</Company>
+    <Description>Cryptographic signing for AI agents using ML-DSA-44 (post-quantum)</Description>
+    <PackageProjectUrl>https://github.com/mosscomputing/moss-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mosscomputing/moss-dotnet</RepositoryUrl>
+    <PackageTags>ai;agents;cryptography;signing;post-quantum</PackageTags>
+    <PackageLicenseExpression>Proprietary</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
