@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/mosscomputing/moss-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mosscomputing/moss-dotnet</RepositoryUrl>
     <PackageTags>ai;agents;cryptography;signing;post-quantum</PackageTags>
-    <PackageLicenseExpression>Proprietary</PackageLicenseExpression>
+    <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
