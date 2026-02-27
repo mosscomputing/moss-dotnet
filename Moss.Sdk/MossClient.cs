@@ -13,7 +13,7 @@ public class MossClient : IDisposable
     public const string Spec = "moss-0001";
     public const int Version = 1;
     public const string Algorithm = "ML-DSA-44";
-    public const string DefaultBaseUrl = "https://moss-api-837703369688.us-central1.run.app";
+    public const string DefaultBaseUrl = "https://api.mosscomputing.com";
 
     private readonly MossConfig _config;
     private readonly HttpClient _httpClient;
