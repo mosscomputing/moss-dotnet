@@ -169,7 +169,8 @@ All new signups get a **14-day free trial** of Pro.
 ## Links
 
 - [mosscomputing.com](https://mosscomputing.com) — Project site
-- [app.mosscomputing.com](https://app.mosscomputing.com) — Dashboard
+- [dev.mosscomputing.com](https://dev.mosscomputing.com) — Developer Console
+- [audit.mosscomputing.com](https://audit.mosscomputing.com) — Authority Vault
 - [Python SDK](https://github.com/mosscomputing/moss) — moss-sdk
 - [Go SDK](https://github.com/mosscomputing/moss-go) — moss-go
 
