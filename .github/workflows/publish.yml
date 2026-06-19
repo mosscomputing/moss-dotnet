@@ -25,13 +25,13 @@ jobs:
       - name: Pack
         run: dotnet pack Moss.Sdk/Moss.Sdk.csproj -c Release -p:Version=${{ inputs.version }} -o artifacts
 
-      - name: Get OIDC token for NuGet Trusted Publishing
-        run: |
-          $token = Invoke-RestMethod -Headers @{Authorization="Bearer $env:ACTIONS_ID_TOKEN_REQUEST_TOKEN"} -Uri "${env:ACTIONS_ID_TOKEN_REQUEST_URL}&audience=api.nuget.org" -Method Get
-          Set-Content -Path "$env:GITHUB_WORKSPACE/nuget-oidc-token.txt" -Value $token.value -NoNewline
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: Lechatdiabolique
 
-      - name: Publish to NuGet (Trusted Publishing OIDC)
+      - name: NuGet push
         run: |
-          $oidcToken = Get-Content "$env:GITHUB_WORKSPACE/nuget-oidc-token.txt" -Raw
           $nupkg = Get-ChildItem -Path artifacts -Filter *.nupkg | Select-Object -First 1
-          dotnet nuget push $nupkg.FullName --source https://api.nuget.org/v3/index.json --api-key $oidcToken
+          dotnet nuget push $nupkg.FullName --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
