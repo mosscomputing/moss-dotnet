@@ -25,7 +25,5 @@ jobs:
       - name: Pack
         run: dotnet pack Moss.Sdk/Moss.Sdk.csproj -c Release -p:Version=${{ inputs.version }} -o artifacts
 
-      - name: Publish to NuGet
-        run: dotnet nuget push artifacts/*.nupkg --source https://api.nuget.org/v3/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
+      - name: Authenticate with NuGet (Trusted Publishing / OIDC)
+        run: dotnet nuget push artifacts/*.nupkg --source https://api.nuget.org/v3/index.json --api-key AzureDTUpublishing
