@@ -33,4 +33,5 @@ jobs:
       - name: Publish to NuGet (Trusted Publishing OIDC)
         run: |
           $oidcToken = Get-Content "$env:GITHUB_WORKSPACE/nuget-oidc-token.txt" -Raw
-          dotnet nuget push artifacts/*.nupkg --source https://api.nuget.org/v3/index.json --api-key $oidcToken
+          $nupkg = Get-ChildItem -Path artifacts -Filter *.nupkg | Select-Object -First 1
+          dotnet nuget push $nupkg.FullName --source https://api.nuget.org/v3/index.json --api-key $oidcToken
