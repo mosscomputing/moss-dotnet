@@ -10,7 +10,7 @@ on:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       id-token: write
       contents: read
@@ -25,5 +25,5 @@ jobs:
       - name: Pack
         run: dotnet pack Moss.Sdk/Moss.Sdk.csproj -c Release -p:Version=${{ inputs.version }} -o artifacts
 
-      - name: Authenticate with NuGet (Trusted Publishing / OIDC)
-        run: dotnet nuget push artifacts/*.nupkg --source https://api.nuget.org/v3/index.json --api-key AzureDTUpublishing
+      - name: Publish to NuGet (Trusted Publishing)
+        run: dotnet nuget push artifacts/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}
