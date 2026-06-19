@@ -25,5 +25,12 @@ jobs:
       - name: Pack
         run: dotnet pack Moss.Sdk/Moss.Sdk.csproj -c Release -p:Version=${{ inputs.version }} -o artifacts
 
-      - name: Publish to NuGet (Trusted Publishing)
-        run: dotnet nuget push artifacts/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}
+      - name: Get OIDC token for NuGet Trusted Publishing
+        run: |
+          $token = Invoke-RestMethod -Headers @{Authorization="Bearer $env:ACTIONS_ID_TOKEN_REQUEST_TOKEN"} -Uri "${env:ACTIONS_ID_TOKEN_REQUEST_URL}&audience=api.nuget.org" -Method Get
+          Set-Content -Path "$env:GITHUB_WORKSPACE/nuget-oidc-token.txt" -Value $token.value -NoNewline
+
+      - name: Publish to NuGet (Trusted Publishing OIDC)
+        run: |
+          $oidcToken = Get-Content "$env:GITHUB_WORKSPACE/nuget-oidc-token.txt" -Raw
+          dotnet nuget push artifacts/*.nupkg --source https://api.nuget.org/v3/index.json --api-key $oidcToken
