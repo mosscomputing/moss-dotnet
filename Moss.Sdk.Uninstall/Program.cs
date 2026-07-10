@@ -30,6 +30,7 @@ MANUAL CLEANUP CHECKLIST
 [ ] Remove config files: rm -f .moss.yml moss_config.json moss.config.js
 [ ] Unset MOSS_* environment variables
 [ ] CI/CD: remove MOSS_* secrets and setup steps from GitHub Actions / CI
+[ ] Docker: remove MOSS_* ENV lines and the MOSS dependency from Dockerfiles
 [ ] Docs: update README / setup guides that reference MOSS
 ");
         Console.WriteLine("\nChecklist printed. Complete the steps above manually.");
