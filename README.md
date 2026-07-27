@@ -150,17 +150,17 @@ catch (MossException e)
 }
 ```
 
-## Pricing Tiers
+## Pricing
 
-| Tier | Price | Agents | Signatures | Retention |
-|------|-------|--------|------------|-----------|
-| **Free** | $0 | 5 | 1,000/day | 7 days |
-| **Pro** | $1,499/mo | Unlimited | Unlimited | 1 year |
-| **Enterprise** | Custom | Unlimited | Unlimited | 7 years |
+| Tier | Annual | Agents | Retention |
+|------|--------|--------|-----------|
+| **Startup** | $25K | 2 | 7 days |
+| **Platform** | $100K | 5 | 90 days |
+| **Scale** | $175K | 20 | 1 year |
+| **Govern** | $275K | 50 | 1 year |
+| **Enterprise** | Custom | Unlimited | 7 years |
 
-*Annual billing: $1,249/mo (save $3,000/year)*
-
-All new signups get a **14-day free trial** of Pro.
+See [mosscomputing.com/pricing](https://mosscomputing.com/pricing) for details.
 
 ## Requirements
 
